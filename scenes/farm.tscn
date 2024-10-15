@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://drs0xn38il40y"]
+[gd_scene load_steps=11 format=3 uid="uid://drs0xn38il40y"]
 
 [ext_resource type="Texture2D" uid="uid://cha0miurdm25m" path="res://farms-trucks.png" id="1_d8o3r"]
 [ext_resource type="PackedScene" uid="uid://c36ngrtqmrh2v" path="res://scenes/truck.tscn" id="2_0f32b"]
@@ -23,7 +23,26 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="Curve2D" id="Curve2D_g1yxn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2016, 562, 0, 0, 0, 0, 737, 558, 0, 0, 0, 0, 737, 910, 0, 0, 0, 0, 737, 556, 0, 0, 0, 0, 2015, 564)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_fnlrp"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2018, 555, 0, 0, 0, 0, 1820, 562, 0, 0, 0, 0, 1819, 169, 0, 0, 0, 0, 1820, 563, 0, 0, 0, 0, 2017, 563)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_crur7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2014, 556, 0, 0, 0, 0, 1832, 563, 0, 0, 0, 0, 1836, 920, 0, 0, 0, 0, 1832, 567, 0, 0, 0, 0, 2012, 564)
+}
+point_count = 5
+
 [node name="Node2D" type="Node2D"]
+position = Vector2(1366, 189)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_d8o3r")
@@ -68,6 +87,7 @@ motion_mode = 1
 path_follow = NodePath("../Path2D2/PathFollow2D")
 
 [node name="Path2D3" type="Path2D" parent="."]
+visible = false
 curve = SubResource("Curve2D_bwadx")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
@@ -80,3 +100,45 @@ path_follow = NodePath("../Path2D3/PathFollow2D")
 
 [node name="FillPoint3" parent="." instance=ExtResource("3_ggfto")]
 position = Vector2(94, 887)
+
+[node name="FillPoint4" parent="." instance=ExtResource("3_ggfto")]
+position = Vector2(738, 911)
+
+[node name="FillPoint5" parent="." instance=ExtResource("3_ggfto")]
+position = Vector2(1833, 925)
+
+[node name="FillPoint6" parent="." instance=ExtResource("3_ggfto")]
+position = Vector2(1819, 173)
+
+[node name="EmptyPoint2" parent="." instance=ExtResource("4_wktnw")]
+position = Vector2(2014, 563)
+
+[node name="Path2D4" type="Path2D" parent="."]
+curve = SubResource("Curve2D_g1yxn")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D4"]
+position = Vector2(2016, 562)
+rotation = -3.13847
+
+[node name="Truck4" parent="." node_paths=PackedStringArray("path_follow") instance=ExtResource("2_0f32b")]
+path_follow = NodePath("../Path2D4/PathFollow2D")
+
+[node name="Path2D5" type="Path2D" parent="."]
+curve = SubResource("Curve2D_fnlrp")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D5"]
+position = Vector2(2018, 555)
+rotation = 3.10625
+
+[node name="Truck5" parent="." node_paths=PackedStringArray("path_follow") instance=ExtResource("2_0f32b")]
+path_follow = NodePath("../Path2D5/PathFollow2D")
+
+[node name="Path2D6" type="Path2D" parent="."]
+curve = SubResource("Curve2D_crur7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D6"]
+position = Vector2(2014, 556)
+rotation = 3.10315
+
+[node name="Truck6" parent="." node_paths=PackedStringArray("path_follow") instance=ExtResource("2_0f32b")]
+path_follow = NodePath("../Path2D6/PathFollow2D")
