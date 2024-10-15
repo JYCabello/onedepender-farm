@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Truck
+
 var is_loaded = false
 @export var path_follow: PathFollow2D
 @export var speed = 150.0

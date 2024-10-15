@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://drs0xn38il40y"]
+[gd_scene load_steps=6 format=3 uid="uid://drs0xn38il40y"]
 
 [ext_resource type="Texture2D" uid="uid://cha0miurdm25m" path="res://farms-trucks.png" id="1_d8o3r"]
 [ext_resource type="PackedScene" uid="uid://c36ngrtqmrh2v" path="res://scenes/truck.tscn" id="2_0f32b"]
+[ext_resource type="PackedScene" uid="uid://xty6eo7jy66l" path="res://scenes/fill_point.tscn" id="3_ggfto"]
+[ext_resource type="PackedScene" uid="uid://fr64wlvjc7po" path="res://scenes/empty_point.tscn" id="4_wktnw"]
 
 [sub_resource type="Curve2D" id="Curve2D_bfibc"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -71, 574, 0, 0, 0, 0, 731, 578, 0, 0, 0, 0, 728, 186, 0, 0, 0, 0, 721, 572, 0, 0, 0, 0, -69, 574, 0, 0, 0, 0, -71, 574)
+"points": PackedVector2Array(0, 0, 0, 0, -75, 556, 0, 0, 0, 0, 729, 551, 0, 0, 0, 0, 728, 155, 0, 0, 0, 0, 724, 550, 0, 0, 0, 0, -75, 555, 0, 0, 0, 0, -75, 556)
 }
 point_count = 6
 
@@ -19,8 +21,8 @@ offset = Vector2(960, 540)
 curve = SubResource("Curve2D_bfibc")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-71, 574)
-rotation = 0.00498749
+position = Vector2(-75, 556)
+rotation = -0.00621883
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(960, 540)
@@ -29,3 +31,9 @@ offset = Vector2(960, 540)
 position = Vector2(112, 483)
 motion_mode = 1
 path_follow = NodePath("../Path2D/PathFollow2D")
+
+[node name="FillPoint" parent="." instance=ExtResource("3_ggfto")]
+position = Vector2(728, 159)
+
+[node name="EmptyPoint" parent="." instance=ExtResource("4_wktnw")]
+position = Vector2(-76, 556)

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://xty6eo7jy66l"]
+
+[ext_resource type="Script" path="res://scenes/fill_point.gd" id="1_cyhtw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0gvqr"]
+
+[node name="FillPoint" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0gvqr")
+script = ExtResource("1_cyhtw")
+
+[connection signal="body_entered" from="." to="CollisionShape2D" method="_on_fill_point_body_entered"]
