@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://drs0xn38il40y"]
+
+[ext_resource type="Texture2D" uid="uid://cha0miurdm25m" path="res://farms-trucks.png" id="1_d8o3r"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_d8o3r")
+offset = Vector2(960, 540)
