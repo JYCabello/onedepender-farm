@@ -32,10 +32,10 @@ func update_looking_at() -> LookingAt:
 		return LookingAt.right
 	if 1 * slice < angle && angle <= 3 * slice:
 		return LookingAt.down
-	if -3 * slice < angle || angle <= -1 * slice:
-		return LookingAt.left
 	if -3 * slice < angle && angle <= -1 * slice:
 		return LookingAt.up
+	if -3 * slice < angle || angle > 3 * slice:
+		return LookingAt.left
 	return LookingAt.down
 
 enum LookingAt {

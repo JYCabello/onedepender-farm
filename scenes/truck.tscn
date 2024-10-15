@@ -10,7 +10,7 @@ script = ExtResource("1_kj0qi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_l0gpt")
-animation = &"empty-right"
+animation = &"full-up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sfdci")
