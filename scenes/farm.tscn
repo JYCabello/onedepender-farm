@@ -1,9 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://drs0xn38il40y"]
+[gd_scene load_steps=4 format=3 uid="uid://drs0xn38il40y"]
 
 [ext_resource type="Texture2D" uid="uid://cha0miurdm25m" path="res://farms-trucks.png" id="1_d8o3r"]
+[ext_resource type="PackedScene" uid="uid://c36ngrtqmrh2v" path="res://scenes/truck.tscn" id="2_0f32b"]
+
+[sub_resource type="Curve2D" id="Curve2D_bfibc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -71, 574, 0, 0, 0, 0, 731, 578, 0, 0, 0, 0, 728, 186, 0, 0, 0, 0, 721, 572, 0, 0, 0, 0, -69, 574, 0, 0, 0, 0, -71, 574)
+}
+point_count = 6
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_d8o3r")
 offset = Vector2(960, 540)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_bfibc")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-71, 574)
+rotation = 0.00498749
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(960, 540)
+
+[node name="Truck" parent="." node_paths=PackedStringArray("path_follow") instance=ExtResource("2_0f32b")]
+position = Vector2(112, 483)
+motion_mode = 1
+path_follow = NodePath("../Path2D/PathFollow2D")

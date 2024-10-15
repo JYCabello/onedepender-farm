@@ -2,13 +2,14 @@ extends CharacterBody2D
 
 var is_loaded = false
 @export var path_follow: PathFollow2D
+@export var speed = 150.0
 
 
-
-func _process(_delta: float) -> void:
-	
+func _process(delta: float) -> void:
+	path_follow.progress += speed * delta
+	global_position = path_follow.global_position
 	$AnimatedSprite2D.play(get_animation_name())
-	pass
+	move_and_slide()
 
 func get_animation_name() -> String:
 	var state = "full" if is_loaded else "empty"
@@ -25,7 +26,7 @@ func get_animation_name() -> String:
 
 
 func update_looking_at() -> LookingAt:
-	var angle = velocity.angle()
+	var angle = path_follow.rotation
 	var slice = PI / 4  # Adjust slice for 4 directions
 	if -1 * slice < angle && angle <= 1 * slice:
 		return LookingAt.right
